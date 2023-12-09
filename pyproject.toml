@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "task-managers"
+version = "0.1.0"
+description = "task managers app"
+authors = ["ioan beilic <ioan.beilic@gmail.com>"]
+readme = "README.md"
+packages = [{include = "config"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
