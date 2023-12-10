@@ -18,6 +18,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
@@ -30,7 +31,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party library
     # apps
+    "config",
     "foodfactory",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -110,7 +113,6 @@ LANGUAGES = (
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, "locale"),
 ]
-print(LOCALE_PATHS)
 
 # If you set this to False, Django will not format dates, numbers and
 # Use calendars according to the current locale.
@@ -126,8 +128,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "static/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
