@@ -1,46 +1,50 @@
 {% extends "base.html" %}
-
-{% block title %}{translate "SignUp"}{% endblock %}
-
+{% load static %}
+{% block title %} {{ _("Sign in") }} {% endblock %}
 {% block css %}
-<style>
-
-</style>
+<style></style>
 {% endblock %}
-
-{% block header %}Site Header{% endblock %}
 
 {% block content %}
+<ion-content class="ion-padding">
+  <div class="row h-100">
+    <div class="d-none d-md-block col-md-6 col-lg-8" 
+    style="background-image: url('{% static "img/background.jpeg" %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 p-5">
+      <form method="post" action=".">
+        {% csrf_token %}
+        <div class="ion-text-center">
+          <img src="{% static 'img/logo.svg' %}" class="img-fluid" alt="logo">
+          <h3> {{ _('Login to your account') }}</h3>
+        </div>
 
-<ion-content>
-  <div class="card-container">
-    <ion-card>
-      <ion-row>
-        <ion-col size-md="3" size="12" class="ion-padding ion-blue-bkg">
-          <img
-            src="https://images.prismic.io/ionicframeworkcom/ac68e1d9-9887-4e5a-9820-9290d06638de_ionic+logo+white+on+blue.png"
-            alt="Ionic logo"
-            loading="lazy"
-          />
-        </ion-col>
-        <ion-col size-md="9" size="12" class="welcome">
-          <ion-card-header>
-            <ion-card-title> Welcome to Ionic Secure Solutions Starter </ion-card-title>
-          </ion-card-header>
+        <div class="padding">
 
-          <ion-card-content>
-            <ion-button (click)="login()" shape="round" color="primary"> Sign in </ion-button>
-          </ion-card-content>
+          <ion-item>
+            <ion-input label-placement="floating" name="email" type="email" label=" {{ _('Email') }}"
+              required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label-placement="floating" name="password" type="password" label=" {{ _('Password') }}"
+              required></ion-input>
+          </ion-item>
+
+        </div>
+       
+        <div class="padding">
+          <ion-button size="large" type="submit" expand="block">
+            {{ _('Login') }}
+          </ion-button>
+        </div>
         </ion-col>
-      </ion-row>
-    </ion-card>
+        </ion-row>
+        </ion-grid>
+      </form>
+      <div class="mt-5">
+        <a class="nav-link" href="/auth/sign-up"> {{ _('Do you not have an account?') }} </a>
+      </div>
+    </div>
   </div>
 </ion-content>
-
-{% endblock %}
-
-{% block footer%} Site Footer {% endblock %}
-{% block js %}
-<script>
-</script>
 {% endblock %}
